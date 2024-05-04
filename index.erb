@@ -20,7 +20,7 @@
           <section x-data="{idx: Math.floor(Math.random() * <%= @images_count %>)}">
             <% @images.each_index do |idx| %>
                 <div x-show="idx == <%= idx %>" class="flex flex-col gap-3">
-                    <img src="./images/<%= @images[idx] %>" alt="" class="w-full h-auto" />
+                    <img src="./images/<%= @images[idx] %>?width=1320" alt="" class="w-full h-auto" />
                 </div>
             <% end %>
           </section>
