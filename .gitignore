@@ -1,0 +1,11 @@
+.parcel-cache
+.env
+node_modules/
+dist/
+build/
+
+index.html
+
+# wrangler project
+.dev.vars
+.wrangler/

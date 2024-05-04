@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gain the Power from Akabeko</title>
+    <link rel="icon" href="./assets/favicon.ico">
+    <link rel="preconnect" href="https://akabeco-products-api.kuropen.workers.dev" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin="anonymous">
+    <link href="./assets/style.css" type="text/css" rel="stylesheet">
+    <script type="module" src="./assets/script.ts"></script>
+  </head>
+  <body x-data="app">
+    <main class="max-w-[896px] mx-auto my-12 px-7 md:px-10 flex flex-col gap-12">
+        <header class="flex flex-row items-center gap-3">
+            <img src="./assets/icon.png?width=120" alt="" class="w-10 h-10 rounded-full" />
+            <h1 class="text-2xl">Gain the Power from Akabeko</h1>
+        </header>
+        <div class="w-full max-w-[660px] mx-auto flex flex-col gap-12">
+          <section x-data="{idx: Math.floor(Math.random() * <%= @images_count %>)}">
+            <% @images.each_index do |idx| %>
+                <div x-show="idx == <%= idx %>" class="flex flex-col gap-3">
+                    <img src="./images/<%= @images[idx] %>" alt="" class="w-full h-auto" />
+                </div>
+            <% end %>
+          </section>
+          <div x-show="!isJapanese" class="flex flex-col gap-12">
+            <section>
+                <h2 class="text-xl font-bold">What is akabeko?</h2>
+                <p>Akabeko is a traditional toy of Aizu region, the western part of Fukushima prefecture, 
+                    which resembles legendary red cow used to build Enzoji temple (Fukuman Kokuzo) in Yanaizu town.<br />
+                    The toy is believed to ward off sickness such as smallpox, as children who had this toy did not catch the illness.<br />
+                    Nowadays it is the situation of COVID-19 outbreak; the toy is widely noticed as a charm to ward off sickness.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold">About this website</h2>
+                <p>
+                    This site is to pray to bring the COVID-19 pandemic to an end earlier, with a power of Akabeko as a charm.<br />
+                    The images of Akabeko used in this site (excluding quoted ones) are licensed under <a rel="license noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by/4.0/" class="underline">CC-BY 4.0 License</a>.
+                </p>
+                <p>
+                    The source code of this website is available on <a href="https://github.com/kuropen/akabeco" class="underline">GitHub</a>.<br/>
+                    Please feel free to make a Pull Request such as addition of Akabeko images.
+                </p>
+            </section>
+          </div>
+          <div x-show="isJapanese" class="flex flex-col gap-12">
+            <section>
+                <h2 class="text-xl font-bold">赤べことは</h2>
+                <p>福島県西部・会津地方の伝統的な玩具（張り子人形）であり、
+                    柳津町の圓藏寺（福満虚空蔵尊）の建立の際に材木を運搬したといわれる赤い牛を模しています。<br />
+                    天然痘などが流行した時代、この人形を持っていた子供たちが病気にかからなかったことから、
+                    疫病避けのお守りとしても知られています。
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold">このサイトについて</h2>
+                <p>
+                    このサイトは、赤べこに刻まれたこのような歴史に着目し、新型コロナウイルス (COVID-19) の感染拡大の早期終息を願い制作されました。<br />
+                    このサイト上の赤べこの画像（引用されたツイートや販売商品の画像を除きます）は、
+                    <a rel="license noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by/4.0/" class="underline">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>の下に提供されています。
+                </p>
+                <p>
+                    このサイトのソースコードは<a href="https://github.com/kuropen/akabeco" class="underline">GitHub</a>で公開されています。<br/>
+                    赤べこの画像追加などのPull Requestは歓迎します。
+                </p>
+            </section>
+          </div>
+        </div>
+        <footer class="md:flex md:flex-row">
+          <div class="md:flex-grow">
+            <address class="not-italic">Copyright &copy; 2020-2024 <a href="https://kuropen.org/" rel="author" class="underline">Kuropen</a>.</address>
+          </div>
+          <div className="md:text-right md:justify-end">
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" width="88" height="31"></a>
+          </div>
+        </footer>
+    </main>
+  </body>
+</html>
