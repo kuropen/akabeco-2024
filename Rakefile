@@ -5,6 +5,7 @@ require 'erb'
 task :default do
     erb = ERB.new(File.read('index.erb'))
     @images = []
+    @images_count = 0
 
     if FileTest.directory?('images')
         @images = Dir.entries('images').select { |f| f =~ /.*\.(jpg|jpeg|png|gif)$/ }
