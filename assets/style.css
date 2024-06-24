@@ -1,8 +1,8 @@
-@import url(https://fonts.bunny.net/css?family=inter:400|noto-sans-jp:400);
+@import url(https://fonts.bunny.net/css?family=ibm-plex-sans:400|ibm-plex-sans-jp:400);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans JP', sans-serif;
 }

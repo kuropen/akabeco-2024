@@ -60,13 +60,35 @@
                 <h2 class="text-xl font-bold">このサイトについて</h2>
                 <p>
                     このサイトは、赤べこに刻まれたこのような歴史に着目し、新型コロナウイルス (COVID-19) の感染拡大の早期終息を願い制作されました。<br />
-                    このサイト上の赤べこの画像（引用されたツイートや販売商品の画像を除きます）は、
+                    このサイト上の赤べこの画像（販売商品の画像を除きます）は、
                     <a rel="license noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by/4.0/" class="underline">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>の下に提供されています。
                 </p>
                 <p>
                     このサイトのソースコードは<a href="https://github.com/kuropen/akabeco" class="underline">GitHub</a>で公開されています。<br/>
                     赤べこの画像追加などのPull Requestは歓迎します。
                 </p>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-bold">あなたのそばにも赤べこを</h2>
+              <p class="text-sm">
+                ※楽天市場のサイトに遷移します。
+              </p>
+              <div class="m-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <template x-for="item in getProducts(3)">
+                  <div class="grid grid-cols-2 my-2 md:my-0 md:grid-cols-1">
+                    <div class="md:mx-auto">
+                      <a :href="item.itemUrl" target="_blank" rel="noopener noreferrer nofollow">
+                        <img :src="item.mediumImageUrls[0]" :alt="item.itemName" class="w-24 h-24 md:w-32 md:h-32" />
+                      </a>
+                    </div>
+                    <div class="md:text-center">
+                      <a :href="item.itemUrl" target="_blank" rel="noopener noreferrer nofollow" class="underline">
+                        <span x-text="item.itemName"></span>
+                      </a>
+                    </div>
+                </template>
+              </div>
             </section>
           </div>
         </div>
