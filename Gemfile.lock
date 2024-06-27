@@ -7,11 +7,11 @@ GEM
     rake (13.2.1)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   erb
   rake
 
 BUNDLED WITH
-   2.5.10
+   2.3.5
