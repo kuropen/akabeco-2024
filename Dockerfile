@@ -5,10 +5,11 @@ RUN bundle install
 RUN bundle exec rake
 
 FROM node:20 AS percel-builder
+RUN corepack enable
 WORKDIR /app
 COPY --from=erb-builder /app /app
-RUN npm install
-RUN npm run build
+RUN pnpm install
+RUN pnpm run build
 
 FROM caddy:2.8.4-alpine
 WORKDIR /var/www/html

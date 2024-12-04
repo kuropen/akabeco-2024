@@ -13,12 +13,19 @@
 	header {
 		X-FRAME-OPTIONS DENY
 	}
+
+  @assets path *.jpeg *.png *.css *.js
+
+  header / {
+		Cache-Control "public, max-age=604800, s-maxage=604800, stale-while-revalidate=86400"
+	}
+  header @assets {
+		Cache-Control "public, max-age=31536000, s-maxage=31536000, immutable"
+	}
 	log {
 		no_hostname
 	}
 	encode zstd gzip
-
-	redir /favicon.ico /assets/favicon.ico 301
 
 	# Since the production domain, akabe.co, was once a Mastodon instance, 410 Gone should be responded to the ActivityPub requests.
 	respond /inbox "This is no longer a Mastodon instance." 410 {
