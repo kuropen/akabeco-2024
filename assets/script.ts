@@ -52,9 +52,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('app', () => ({
     isJapanese,
     getProducts: async (limit: number) => {
-      const response = await fetch(
-        'https://akabeco-products-api.kuropen.workers.dev/'
-      );
+      const response = await fetch('https://psapi.akabe.co/prd');
       const data: ProductsApiResponse = await response.json();
       if (limit > 0) {
         return data.Items.slice(0, limit);
