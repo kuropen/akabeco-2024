@@ -4,7 +4,7 @@ COPY . .
 RUN bundle install
 RUN bundle exec rake
 
-FROM node:20 AS percel-builder
+FROM node:22 AS percel-builder
 RUN corepack enable
 WORKDIR /app
 COPY --from=erb-builder /app /app
