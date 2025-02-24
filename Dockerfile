@@ -1,16 +1,16 @@
-FROM ruby:3.3 AS erb-builder
+FROM public.ecr.aws/docker/library/ruby:3.3 AS erb-builder
 WORKDIR /app
 COPY . .
 RUN bundle install
 RUN bundle exec rake
 
-FROM node:20 AS percel-builder
+FROM public.ecr.aws/docker/library/node:20 AS percel-builder
 WORKDIR /app
 COPY --from=erb-builder /app /app
 RUN npm ci
 RUN npm run build
 
-FROM caddy:2.8.4-alpine
+FROM public.ecr.aws/docker/library/caddy:2.8.4-alpine
 WORKDIR /var/www/html
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=percel-builder /app/dist /var/www/html
