@@ -52,7 +52,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('app', () => ({
     isJapanese,
     getProducts: async (limit: number) => {
-      const response = await fetch('https://psapi.akabe.co/prd');
+      const response = await fetch('https://apsa.eternie-labs.net/prd');
       const data: ProductsApiResponse = await response.json();
       if (limit > 0) {
         return data.Items.slice(0, limit);
